@@ -1,307 +1,1457 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>RF Tech Portfolio</title>
-<style>
-:root {
---bg-color: #0d1117;
---primary-color: #58a6ff;
---secondary-color: #1f6feb;
---accent-color: #39c5bb;
---text-color: #c9d1d9;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0d0b" />
+  <meta name="description" content="Richard Fehr — Software Engineer and digital solutions developer in Kenya. Explore live projects, web applications, and innovative technology solutions." />
+  <title>Richard Fehr | RF Technologies — Software Engineer</title>
 
-body {
-margin: 0;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background-color: var(--bg-color);
-color: var(--text-color);
-scroll-behavior: smooth;
-}
+  <style>
+    :root {
+      --bg: #090c0a;
+      --surface: #101512;
+      --surface-2: #151c17;
+      --green: #b5ff69;
+      --green-dark: #7bc943;
+      --white: #f4f7f3;
+      --muted: #9ba79d;
+      --border: rgba(255,255,255,.09);
+      --radius: 20px;
+      --max-width: 1160px;
+    }
 
-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-bottom-right-radius: 2em;
-border-bottom-left-radius: 2em;
-padding: 1rem 1rem;
-background: #ffffff;
-position: sticky;
-top: 0;
-z-index: 1000;
-}
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-.logo {
-font-size: 1.8rem;
-font-weight: bold;
-color: var(--primary-color);
-cursor: default;
-}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-nav ul {
-list-style: none;
-display: flex;
-gap: 2rem;
-margin-top: 4%;
-padding: 0;
-}
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 80% 8%, rgba(111,192,70,.09), transparent 35%),
+        var(--bg);
+      color: var(--white);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-nav ul li a {
-color: var(--primary-color);
-text-decoration: none;
-font-weight: 600;
-transition: color 0.3s ease;
-}
-nav ul li a:hover {
-color: var(--accent-color);
-}
+    body, button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
-section {
-padding: 2rem 2rem;
-max-width: 900px;
-margin: 0 auto;
-opacity: 0;
-transform: translateY(20px);
-transition: opacity 0.8s ease, transform 0.8s ease;
-}
-section.visible {
-opacity: 1;
-transform: translateY(0);
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-h2 {
-border-bottom: 2px solid var(--secondary-color);
-padding-bottom: 0.5rem;
-margin-bottom: 1rem;
-color: var(--secondary-color);
-}
+    button {
+      font: inherit;
+    }
 
-img.tech-img {
-width: 100%;
-max-width: 400px;
-border-radius: 8px;
-margin-top: 1rem;
-box-shadow: 0 0 10px var(--primary-color);
-}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-@media (max-width: 600px) {
-nav ul {
-flex-direction: column;
-gap: 1rem;
-}
-header {
-flex-direction: column;
-align-items: center;
-}
-.explore-project-btn {
-background-color: #0078D7;
-/* Tech blue */
-color: #FFFFFF;
-/* White text */
-font-weight: bold;
-margin-top: 7%;
-padding: 12px 24px;
-border: none;
-border-radius: 6px;
-cursor: pointer;
-transition: background-color 0.3s ease, box-shadow 0.3s ease;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-box-shadow: 0 4px 6px rgba(0, 120, 215, 0.4);
-}
+    .container {
+      width: min(var(--max-width), calc(100% - 44px));
+      margin-inline: auto;
+    }
 
-.explore-project-btn:hover {
-background-color: #005A9E;
-/* Darker blue on hover */
-box-shadow: 0 6px 10px rgba(0, 90, 158, 0.6);
-}
+    .accent { color: var(--green); }
 
-.explore-project-btn:focus {
-outline: none;
-box-shadow: 0 0 0 3px #00BCF2;
-/* Bright cyan focus ring */
-align-self: center;
-}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
 
-.resume-card {
-width: 320px;
-border-radius: 10px;
-box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-overflow: hidden;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-background: #ffffff;
-text-align: center;
-margin: 20px auto;
-}
-.resume-image {
-width: 100%;
-height: 200px;
-object-fit: cover;
-}
-.resume-info {
-padding: 16px;
-}
-.resume-name {
-margin: 0;
-color: #0078D7;
-font-weight: 700;
-}
-.resume-course {
-margin: 4px 0 16px;
-font-weight: 500;
-color: #555555;
-}
-.resume-btn {
-display: inline-block;
-background-color: #0078D7;
-color: white;
-text-decoration: none;
-font-weight: bold;
-padding: 10px 28px;
-border-radius: 6px;
-transition: background-color 0.3s ease;
-box-shadow: 0 4px 10px rgba(0, 120, 215, 0.4);
-}
-.resume-btn:hover {
-background-color: #005A9E;
-box-shadow: 0 6px 12px rgba(0, 90, 158, 0.6);
-}
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: var(--green);
+    }
 
+    .section {
+      padding: 100px 0;
+    }
 
-.portfolio-footer {
-background-color: #0078D7;
-color: white;
-text-align: center;
-padding: 24px 16px;
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
-}
-.footer-content h3 {
-margin-bottom: 12px;
-font-weight: 700;
-}
-.footer-content p {
-margin: 4px 0;
-font-weight: 500;
-}
-.social-links a {
-color: #B3D4FF;
-text-decoration: none;
-margin: 0 8px;
-font-weight: 600;
-transition: color 0.3s ease;
-}
-.social-links a:hover {
-color: #FFFFFF;
-}
-.footer-bottom {
-margin-top: 16px;
-font-size: 0.9em;
-font-weight: 400;
-}
-</style>
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading h2 {
+      margin: 12px 0;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.13;
+      letter-spacing: -.055em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 590px;
+    }
+
+    /* NAVIGATION */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9,12,10,.88);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.02rem;
+      letter-spacing: -.035em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      background: var(--green);
+      color: #10150d;
+      border-radius: 13px;
+      font-weight: 950;
+      font-size: .95rem;
+      box-shadow: 0 0 25px rgba(181,255,105,.12);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: .66rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: #c2cbc3;
+      font-size: .88rem;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--green);
+    }
+
+    .nav-links .nav-cta {
+      color: #10150d;
+      background: var(--green);
+      padding: 10px 17px;
+      border-radius: 9px;
+      font-weight: 800;
+    }
+
+    .nav-cta:hover,
+    .btn-primary:hover {
+      background: #ceffa0;
+      color: #10150d;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--white);
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 660px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items: center;
+      gap: 55px;
+      padding-top: 85px;
+      padding-bottom: 90px;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 13px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      border-radius: 100px;
+      color: #c9d3ca;
+      font-size: .78rem;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 12px var(--green);
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 6.8vw, 5.8rem);
+      line-height: .99;
+      letter-spacing: -.075em;
+      margin: 0 0 24px;
+      font-weight: 850;
+    }
+
+    .hero h1 .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px #b5ff69;
+    }
+
+    .hero-description {
+      color: var(--muted);
+      max-width: 570px;
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      font-size: .9rem;
+      font-weight: 800;
+      transition: transform .2s, background .2s, border-color .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      color: #10150d;
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.025);
+      color: var(--white);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--green);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 38px;
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .hero-meta strong {
+      display: block;
+      color: var(--white);
+      font-size: .98rem;
+    }
+
+    /* CODE PANEL */
+
+    .code-window {
+      position: relative;
+      padding: 22px;
+      border: 1px solid rgba(181,255,105,.19);
+      border-radius: 20px;
+      background: linear-gradient(145deg, #151d17, #0c100d);
+      box-shadow: 0 25px 90px rgba(0,0,0,.28);
+      overflow: hidden;
+    }
+
+    .code-window::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -90px;
+      bottom: -90px;
+      border-radius: 50%;
+      background: var(--green);
+      filter: blur(95px);
+      opacity: .12;
+      pointer-events: none;
+    }
+
+    .window-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .window-dot {
+      width: 9px;
+      height: 9px;
+      background: #59645b;
+      border-radius: 50%;
+    }
+
+    .window-dot:first-child { background: #ff817a; }
+    .window-dot:nth-child(2) { background: #f3c96b; }
+    .window-dot:nth-child(3) { background: #91dc77; }
+
+    .window-title {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    .code {
+      padding: 25px 0 12px;
+      font: .86rem/2 "SFMono-Regular", Consolas, monospace;
+      overflow-wrap: anywhere;
+    }
+
+    .code .line-number {
+      display: inline-block;
+      width: 27px;
+      color: #59645b;
+      user-select: none;
+    }
+
+    .code .purple { color: #c6a0ff; }
+    .code .yellow { color: #f3d38a; }
+    .code .cyan { color: #83dce8; }
+    .code .green { color: var(--green); }
+    .code .muted { color: #829087; }
+
+    .code-badge {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 15px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      border-radius: 12px;
+      font-size: .8rem;
+    }
+
+    .code-badge strong { color: var(--green); }
+
+    /* TECH STRIP */
+
+    .tech-strip {
+      border-block: 1px solid var(--border);
+      background: rgba(255,255,255,.015);
+    }
+
+    .tech-strip-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px 28px;
+      padding: 25px 0;
+      color: #a7b2a8;
+      font-size: .84rem;
+      font-weight: 700;
+    }
+
+    .tech-strip span::before {
+      content: "✳";
+      color: var(--green);
+      margin-right: 9px;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius);
+      transition: border-color .25s, transform .25s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(181,255,105,.4);
+      transform: translateY(-5px);
+    }
+
+    .service-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(181,255,105,.09);
+      color: var(--green);
+      font-size: 1.35rem;
+      margin-bottom: 23px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.018), transparent);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      min-width: 0;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(181,255,105,.35);
+    }
+
+    .project-visual {
+      min-height: 235px;
+      padding: 23px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 110%, rgba(181,255,105,.18), transparent 65%),
+        #151c17;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-visual.purple-bg {
+      background:
+        radial-gradient(ellipse at 50% 110%, rgba(168,133,255,.18), transparent 65%),
+        #17131f;
+    }
+
+    .project-visual.orange-bg {
+      background:
+        radial-gradient(ellipse at 50% 110%, rgba(255,173,95,.16), transparent 65%),
+        #1c1712;
+    }
+
+    .mock-browser {
+      width: 100%;
+      max-width: 390px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(9,12,10,.93);
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.35);
+      overflow: hidden;
+      transform: rotate(-2deg);
+      transition: transform .3s;
+    }
+
+    .project-card:hover .mock-browser {
+      transform: rotate(0);
+    }
+
+    .mock-top {
+      display: flex;
+      gap: 5px;
+      padding: 9px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mock-top i {
+      width: 6px;
+      height: 6px;
+      background: #677269;
+      border-radius: 50%;
+    }
+
+    .mock-content { padding: 18px; }
+
+    .mock-logo {
+      color: var(--green);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      font-size: 1.05rem;
+    }
+
+    .mock-title {
+      margin: 18px 0 7px;
+      font-size: 1.2rem;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .mock-copy {
+      color: #9ba79d;
+      font-size: .68rem;
+    }
+
+    .mock-bars {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .mock-bars span {
+      display: block;
+      height: 8px;
+      width: 30%;
+      border-radius: 5px;
+      background: #2e3b31;
+    }
+
+    .mock-bars span:first-child {
+      background: var(--green);
+      width: 42%;
+    }
+
+    .project-content { padding: 24px; }
+
+    .project-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .project-category {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: .68rem;
+      font-weight: 800;
+    }
+
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 9px;
+      color: #c6d0c7;
+      font-size: .69rem;
+      white-space: nowrap;
+    }
+
+    .project-status .status-dot {
+      width: 6px;
+      height: 6px;
+    }
+
+    .project-content h3 {
+      margin: 0 0 9px;
+      font-size: 1.45rem;
+      letter-spacing: -.04em;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: .9rem;
+      margin: 0 0 19px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 22px;
+    }
+
+    .tags span {
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 9px;
+      font-size: .72rem;
+      color: #c5cec6;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--green);
+      font-size: .86rem;
+      font-weight: 800;
+    }
+
+    .project-link:hover { color: white; }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      align-items: start;
+      gap: 65px;
+    }
+
+    .about-panel {
+      padding: 30px;
+      background: linear-gradient(145deg, #172019, #0d110e);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .about-initials {
+      width: 100px;
+      height: 100px;
+      display: grid;
+      place-items: center;
+      border-radius: 25px;
+      background: var(--green);
+      color: #0b1009;
+      font-size: 2.1rem;
+      font-weight: 950;
+      letter-spacing: -.08em;
+      margin-bottom: 25px;
+    }
+
+    .about-panel h3 {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    .about-panel p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .about-copy h2 {
+      margin: 12px 0 18px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -.06em;
+    }
+
+    .about-copy p { color: var(--muted); }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .skills span {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: .8rem;
+      color: #d2dbd3;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      padding: clamp(28px, 5vw, 55px);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(181,255,105,.14), transparent 50%),
+        var(--surface);
+      border: 1px solid rgba(181,255,105,.2);
+      border-radius: 25px;
+    }
+
+    .contact-box h2 {
+      margin: 12px 0;
+      font-size: clamp(2rem, 4.5vw, 3.3rem);
+      letter-spacing: -.06em;
+      line-height: 1.1;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 560px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 25px;
+      margin-top: 23px;
+      font-size: .85rem;
+      color: #d1dbd2;
+    }
+
+    .contact-details a:hover { color: var(--green); }
+
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 27px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a:hover { color: var(--green); }
+
+    /* MOTION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        min-height: auto;
+      }
+
+      .hero-copy { max-width: 700px; }
+
+      .code-window {
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .about-grid { gap: 30px; }
+
+      .contact-box { grid-template-columns: 1fr; }
+
+      .contact-box .btn { justify-self: start; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 32px); }
+
+      .section { padding: 70px 0; }
+
+      .nav { min-height: 68px; }
+
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 20px 22px 24px;
+        background: #0c100d;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links a {
+        display: block;
+        padding: 11px 8px;
+      }
+
+      .nav-links .nav-cta { text-align: center; margin-top: 8px; }
+
+      .hero { padding-top: 65px; padding-bottom: 65px; gap: 35px; }
+
+      .hero h1 { font-size: clamp(2.8rem, 13vw, 4.4rem); }
+
+      .hero-description { font-size: .96rem; }
+
+      .hero-meta { gap: 20px; }
+
+      .tech-strip-inner { justify-content: flex-start; gap: 13px 22px; }
+
+      .services-grid,
+      .project-grid,
+      .about-grid { grid-template-columns: 1fr; }
+
+      .project-visual { min-height: 210px; }
+
+      .about-panel { padding: 24px; }
+
+      .contact-box { padding: 27px 22px; }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<div class="logo">
-RF Technologies
-</div>
-<nav>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#resume">Resume</a></li>
-</ul>
-</nav>
-</header>
-<main>
-<section id="home" class="hidden">
-<h2>Home</h2>
-<p>
-Welcome to RF Tech, where software engineering excellence meets cooperative business insight. We specialize in developing innovative web, mobile, and desktop applications that empower clients and foster collaboration. Our unique approach blends technical expertise with cooperative business skills to deliver solutions that not only work seamlessly but also align with sustainable, partnership-driven growth.
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="RF Technologies home">
+        <span class="brand-mark">RF</span>
+        <span>
+          RF Technologies
+          <small>Engineering digital growth</small>
+        </span>
+      </a>
 
-Explore our services and discover how RF Tech can help turn your ideas into impactful software solutions.
-</p>
-<img class="tech-img" src="/storage/emulated/0/imgs/my1.jpg" alt="Tech inspired image 1" />
-</section>
-<section id="projects" class="hidden">
-<h2>Projects</h2>
-<p>
-At RF Tech, every project tells a story of innovation and precision. Our portfolio showcases diverse software engineering projects ranging from responsive web applications to feature-rich mobile and desktop apps. We provide end-to-end software engineering services — from design and development to maintenance and optimization — leveraging cooperative business practices that ensure client success and active collaboration.
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="navLinks"
+      >☰</button>
 
-Browse through our featured projects to see how we bring concepts to life and solve complex challenges with efficient, scalable solutions.
-</p>
-<img class="tech-img" src="/storage/emulated/0/imgs/me3.jpg" alt="Tech inspired image 2" />
-<!-- Explore Project Button -->
-<button class="explore-project-btn">Explore Projects</button>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a class="nav-cta" href="#contact">Let's Talk ↗</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <!-- HERO -->
+    <section class="container hero" id="home">
+      <div class="hero-copy reveal">
+        <div class="availability">
+          <span class="status-dot"></span>
+          Software Engineering · Kenya
+        </div>
 
-</section>
-<section id="resume" class="hidden">
-<h2>Resume</h2>
-<p>
-Bringing together a strong foundation in software engineering and cooperative business methodologies, our team is equipped to handle any challenge in the software development lifecycle. View the detailed breakdown of our skills, certifications, and professional experience that uniquely position RF Tech to deliver exceptional software services.
-</p>
-<!-- Resume Image Card -->
-<div class="resume-card">
-<img src="/storage/emulated/0/imgs/me1.jpg" alt="Profile Image" class="resume-image" />
-<div class="resume-info">
-<h2 class="resume-name">Richard Fehr</h2>
-<h4 class="resume-course">Software Engineer</h4>
-<a href="#" class="resume-btn">My Resume</a>
-</div>
-</div>
+        <div class="eyebrow">Hello, I'm Richard Fehr</div>
 
+        <h1>
+          Building the<br />
+          <span class="accent">digital</span><br />
+          <span class="outline">future.</span>
+        </h1>
 
-</section>
-<!-- Portfolio Footer -->
-<footer class="portfolio-footer">
-<div class="footer-content">
-<h3>Contact Us</h3>
-<p>
-Email: richardfehr0226@gmail.com
-</p>
-<p>
-Phone: 0741437947
-</p>
-<p>
-Location: Nairobi, Kenya
-</p>
-<div class="social-links">
-<a href="https://linkedin.com/in/johndoe" target="_blank" aria-label="LinkedIn">LinkedIn</a> |
-<a href="https://github.com/Richard8080" target="_blank" aria-label="GitHub">GitHub</a> |
-<a href="mailto:richardfehr0226@gmail.com" aria-label="Email">Email</a>
-</div>
-</div>
-<div class="footer-bottom">
-&copy; 2025 RF Tech. All rights reserved.
-</div>
-</footer>
+        <p class="hero-description">
+          I design and develop modern digital experiences, business
+          applications and technology solutions that help people,
+          businesses and communities grow.
+        </p>
 
-</main>
+        <div class="actions">
+          <a class="btn btn-primary" href="#projects">
+            Explore my work <span>↗</span>
+          </a>
+          <a class="btn btn-secondary" href="#contact">
+            Start a project
+          </a>
+        </div>
 
-<script>
-// Add fade in animation on scroll
-const sections = document.querySelectorAll('section');
-const observerOptions = {
-threshold: 0.1
-};
+        <div class="hero-meta">
+          <div>
+            <strong>Web Development</strong>
+            <span>Modern digital products</span>
+          </div>
+          <div>
+            <strong>Business Technology</strong>
+            <span>Practical solutions</span>
+          </div>
+        </div>
+      </div>
 
-function sectionObserverCallback(entries, observer) {
-entries.forEach(entry => {
-if (entry.isIntersecting) {
-entry.target.classList.add('visible');
-}
-});
-}
+      <div class="code-window reveal" aria-label="Decorative code illustration">
+        <div class="window-top">
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <span class="window-title">digital-solution.js</span>
+        </div>
 
-const observer = new IntersectionObserver(sectionObserverCallback,
-observerOptions);
-sections.forEach(section => {
-observer.observe(section);
-});
-</script>
+        <div class="code">
+          <div><span class="line-number">01</span><span class="purple">const</span> <span class="cyan">developer</span> = {</div>
+          <div><span class="line-number">02</span>&nbsp; <span class="yellow">name</span>: <span class="green">"Richard Fehr"</span>,</div>
+          <div><span class="line-number">03</span>&nbsp; <span class="yellow">brand</span>: <span class="green">"RF Technologies"</span>,</div>
+          <div><span class="line-number">04</span>&nbsp; <span class="yellow">location</span>: <span class="green">"Kenya"</span>,</div>
+          <div><span class="line-number">05</span>&nbsp; <span class="yellow">focus</span>: [</div>
+          <div><span class="line-number">06</span>&nbsp;&nbsp;&nbsp; <span class="green">"Web Applications"</span>,</div>
+          <div><span class="line-number">07</span>&nbsp;&nbsp;&nbsp; <span class="green">"Business Solutions"</span>,</div>
+          <div><span class="line-number">08</span>&nbsp;&nbsp;&nbsp; <span class="green">"Digital Innovation"</span></div>
+          <div><span class="line-number">09</span>&nbsp; ],</div>
+          <div><span class="line-number">10</span>&nbsp; <span class="yellow">mission</span>: <span class="green">"Build what's next."</span></div>
+          <div><span class="line-number">11</span>};</div>
+          <div><span class="line-number">12</span><span class="muted">// Ideas into impact.</span></div>
+        </div>
+
+        <div class="code-badge">
+          <span>Creative thinking. Clean engineering.</span>
+          <strong>RF.dev ↗</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY STRIP -->
+    <div class="tech-strip">
+      <div class="container tech-strip-inner">
+        <span>Web Applications</span>
+        <span>React & JavaScript</span>
+        <span>Cloud & APIs</span>
+        <span>Business Systems</span>
+        <span>Digital Innovation</span>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="section container" id="services">
+      <div class="section-heading reveal">
+        <div class="eyebrow">What I do</div>
+        <h2>Technology built around <span class="accent">your goals.</span></h2>
+        <p>
+          From the first idea to a working digital product, I focus on
+          usability, reliability and solutions that serve real needs.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">⌘</div>
+          <h3>Web Development</h3>
+          <p>
+            Responsive websites, modern interfaces, web applications
+            and interactive digital experiences.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">⚙</div>
+          <h3>Software Engineering</h3>
+          <p>
+            Application architecture, backend services, database
+            integration and maintainable software.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">◈</div>
+          <h3>Business Solutions</h3>
+          <p>
+            Digital systems designed to streamline business processes,
+            customer experiences and everyday operations.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">▤</div>
+          <h3>Membership Platforms</h3>
+          <p>
+            Member registration, profiles, administration, events
+            and payment-management workflows.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">☁</div>
+          <h3>Cloud & API Integration</h3>
+          <p>
+            Connecting applications, cloud services, databases
+            and third-party systems.
+          </p>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">↗</div>
+          <h3>Technical Support</h3>
+          <p>
+            Software installation, troubleshooting, maintenance,
+            updates and practical IT assistance.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="eyebrow">Selected work</div>
+          <h2>Projects turning ideas into <span class="accent">reality.</span></h2>
+          <p>
+            Explore digital products and platforms I work on.
+            Visit the live websites or explore projects in development.
+          </p>
+        </div>
+
+        <div class="project-grid">
+
+          <!-- LIVE PROJECT: WEMPA -->
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <div class="mock-browser">
+                <div class="mock-top"><i></i><i></i><i></i></div>
+                <div class="mock-content">
+                  <div class="mock-logo">WEMPA</div>
+                  <div class="mock-title">
+                    Membership.<br /><span class="accent">Connected.</span>
+                  </div>
+                  <div class="mock-copy">
+                    Connecting maritime employers and professionals.
+                  </div>
+                  <div class="mock-bars"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-category">Membership Platform</span>
+                <span class="project-status">
+                  <span class="status-dot"></span> Live website
+                </span>
+              </div>
+
+              <h3>WEMPA</h3>
+              <p>
+                A membership management platform for the Western Maritime
+                Employers & Professionals Association, supporting a
+                connected digital membership experience.
+              </p>
+
+              <div class="tags">
+                <span>React</span>
+                <span>Firebase</span>
+                <span>Web Applications</span>
+              </div>
+
+              <a class="project-link"
+                 href="https://www.wempa.com.ng"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Visit live website <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- SOKODIGI -->
+          <article class="project-card reveal">
+            <div class="project-visual">
+              <div class="mock-browser">
+                <div class="mock-top"><i></i><i></i><i></i></div>
+                <div class="mock-content">
+                  <div class="mock-logo">SokoDigi<span style="color:white">.</span></div>
+                  <div class="mock-title">
+                    Your market.<br /><span class="accent">Without limits.</span>
+                  </div>
+                  <div class="mock-copy">
+                    Digital commerce, sellers and connected communities.
+                  </div>
+                  <div class="mock-bars"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-category">Digital Commerce</span>
+                <span class="project-status">In development</span>
+              </div>
+
+              <h3>SokoDigi</h3>
+              <p>
+                A digital marketplace concept connecting buyers,
+                merchants and marketers through product discovery,
+                affiliate commissions and business tools.
+              </p>
+
+              <div class="tags">
+                <span>React</span>
+                <span>Node.js</span>
+                <span>Marketplace</span>
+              </div>
+
+              <a class="project-link"
+                 href="#contact">
+                Discuss this project <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- RF ENTERPRISES -->
+          <article class="project-card reveal">
+            <div class="project-visual orange-bg">
+              <div class="mock-browser">
+                <div class="mock-top"><i></i><i></i><i></i></div>
+                <div class="mock-content">
+                  <div class="mock-logo" style="color:#ffbd82">RF ENTERPRISES</div>
+                  <div class="mock-title">
+                    Local service.<br /><span style="color:#ffbd82">Digital convenience.</span>
+                  </div>
+                  <div class="mock-copy">
+                    Technology services for individuals and businesses.
+                  </div>
+                  <div class="mock-bars"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-category">Business Technology</span>
+                <span class="project-status">Business</span>
+              </div>
+
+              <h3>Richard Fehr Enterprises</h3>
+              <p>
+                A technology and cyber-services business providing
+                printing, scanning, document services, software support
+                and digital development services.
+              </p>
+
+              <div class="tags">
+                <span>IT Services</span>
+                <span>Software</span>
+                <span>Digital Solutions</span>
+              </div>
+
+              <a class="project-link" href="#contact">
+                Enquire about services <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- WEMPA REUSABLE SYSTEM -->
+          <article class="project-card reveal">
+            <div class="project-visual purple-bg">
+              <div class="mock-browser">
+                <div class="mock-top"><i></i><i></i><i></i></div>
+                <div class="mock-content">
+                  <div class="mock-logo" style="color:#b9a0ff">MEMBER SYSTEMS</div>
+                  <div class="mock-title">
+                    Organise better.<br /><span style="color:#b9a0ff">Grow together.</span>
+                  </div>
+                  <div class="mock-copy">
+                    Digital administration and membership workflows.
+                  </div>
+                  <div class="mock-bars"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-topline">
+                <span class="project-category">SaaS Concept</span>
+                <span class="project-status">Development</span>
+              </div>
+
+              <h3>Reusable Membership Systems</h3>
+              <p>
+                A reusable software concept for organisations that need
+                digital member records, payments, events and
+                administration in one platform.
+              </p>
+
+              <div class="tags">
+                <span>React</span>
+                <span>Firebase</span>
+                <span>SaaS</span>
+              </div>
+
+              <a class="project-link" href="#contact">
+                Discuss a solution <span>↗</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section container" id="about">
+      <div class="about-grid">
+        <div class="about-panel reveal">
+          <div class="about-initials">RF.</div>
+          <h3>Richard Fehr</h3>
+          <p>Software Engineer · Digital Solutions</p>
+          <div class="tags">
+            <span>Problem Solver</span>
+            <span>Builder</span>
+            <span>Innovator</span>
+          </div>
+        </div>
+
+        <div class="about-copy reveal">
+          <div class="eyebrow">A little about me</div>
+          <h2>Engineering with purpose. <span class="accent">Designing for people.</span></h2>
+
+          <p>
+            I'm Richard Fehr, a software developer and technology
+            entrepreneur focused on building useful digital products
+            and business solutions.
+          </p>
+
+          <p>
+            My interests span web development, business systems,
+            membership platforms and digital commerce. I believe
+            technology should be practical, accessible, dependable
+            and designed around the people who use it.
+          </p>
+
+          <p>
+            Through RF Technologies, I aim to transform ideas into
+            thoughtfully engineered products that solve real problems.
+          </p>
+
+          <div class="skills">
+            <span>HTML & CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>Firebase</span>
+            <span>REST APIs</span>
+            <span>Responsive UI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section container" id="contact">
+      <div class="contact-box reveal">
+        <div>
+          <div class="eyebrow">Have a project in mind?</div>
+          <h2>Let's build something <span class="accent">remarkable.</span></h2>
+          <p>
+            Need a website, a business application, technical support
+            or a digital solution for your organisation? Let's talk
+            about your idea.
+          </p>
+
+          <div class="contact-details">
+            <a href="mailto:richardfehr0226@gmail.com">
+              ✉ richardfehr0226@gmail.com
+            </a>
+            <a href="tel:+254741437947">
+              ☎ +254 741 437 947
+            </a>
+            <span>⌖ Kenya</span>
+          </div>
+        </div>
+
+        <a class="btn btn-primary"
+           href="mailto:richardfehr0226@gmail.com?subject=Project%20Enquiry">
+          Start a conversation ↗
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span> RF Technologies.
+        Built with purpose<span class="accent">.</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://www.wempa.com.ng"
+           target="_blank" rel="noopener noreferrer">WEMPA ↗</a>
+        <a href="https://github.com/Richard8080"
+           target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a href="mailto:richardfehr0226@gmail.com">Email ↗</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Current copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    function closeMenu() {
+      navLinks.classList.remove("open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
+      menuToggle.textContent = "☰";
+    }
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen ? "Close navigation" : "Open navigation"
+      );
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    // Reveal content as it enters the viewport
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    // Highlight the active navigation section
+    const sections = document.querySelectorAll("main section[id]");
+    const sectionLinks = navLinks.querySelectorAll('a[href^="#"]');
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            sectionLinks.forEach(link => {
+              const active = link.getAttribute("href") ===
+                "#" + entry.target.id;
+
+              if (link.getAttribute("href") !== "#contact") {
+                link.classList.toggle("active", active);
+              }
+            });
+          }
+        });
+      }, { rootMargin: "-25% 0px -60% 0px" });
+
+      sections.forEach(section => sectionObserver.observe(section));
+    }
+  </script>
 </body>
 </html>
