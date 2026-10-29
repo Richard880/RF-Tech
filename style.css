@@ -96,7 +96,7 @@ a {
     justify-content: flex-start;
     flex-shrink: 0;
     width: fit-content;
-    max-width: 450px;
+    max-width: 550px;
     text-decoration: none;
     line-height: 0;
     transition: opacity 0.25s ease, transform 0.25s ease;
@@ -105,7 +105,7 @@ a {
 .logo img {
     display: block;
     width: auto;
-    height: 78px;
+    height: 88px;
     max-width: 100%;
     object-fit: contain;
     object-position: left center;
